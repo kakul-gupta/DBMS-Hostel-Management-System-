@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hostel Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🏠 Hostel Management System</h1>
+
+    <a href="/add" class="button">➕ Add Student</a>
+    <a href="/attendance" class="button">📅 Attendance</a>
+
+    <div class="card">
+        <h2>Student List</h2>
+         <table>
+    <tr>
+        <th>Name</th>
+        <th>Room</th>
+        <th>Department</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{ s.name }}</td>
+        <td>{{ s.room_no }}</td>
+        <td>{{ s.department }}</td>
+        <td>
+            <a href="/edit/{{ s.id }}" class="edit-btn">Edit</a>
+            <a href="/delete/{{ s.id }}" class="delete-btn"
+               onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Mark Attendance</h2>
+
+        <form method="POST">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Room</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                </tr>
+
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.room_no }}</td>
+
+                    <td>
+                        <input type="radio" name="status_{{ s.id }}" value="Present" required>
+                    </td>
+
+                    <td>
+                        <input type="radio" name="status_{{ s.id }}" value="Absent">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <button type="submit">Save Attendance</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
